@@ -1,17 +1,18 @@
 package org.selenoid.ui;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
+
+    public SelenideElement seeAllToolsButton = $("a.wt-button_mode_primary");
+    public SelenideElement toolsMenu = $x("//div[contains(@class, 'menu-main_item') and text() = 'Tools']");
+    public SelenideElement searchButton = $("[data-test=menu-main-icon-search]");
+
     private TodoMvcPage todoMvcPage=new TodoMvcPage();
     @BeforeAll
     static void beforeAll(){
@@ -26,12 +27,13 @@ public class MainPage {
         $(withText("Show Selenide"))
                 .shouldBe(Condition.visible).click();
     }*/
-    @Test
+   /* @Test
     void todoMvc(){
         open("https://todomvc.com/examples/angularjs/");
         todoMvcPage.addItme("Show Selenide");
         todoMvcPage.shouldHaveShowItem();
         todoMvcPage.clickShowItem();
 
-    }
+    }*/
+
 }
